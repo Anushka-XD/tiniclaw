@@ -1,0 +1,1 @@
+/* stub — service.c */

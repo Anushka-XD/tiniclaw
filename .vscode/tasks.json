@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Configure (Debug)",
+      "type": "shell",
+      "command": "cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "cmake --build build --parallel",
+      "group": { "kind": "build", "isDefault": true },
+      "dependsOn": "Configure (Debug)",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Build Release",
+      "type": "shell",
+      "command": "cmake -S . -B build-release -DCMAKE_BUILD_TYPE=Release && cmake --build build-release --parallel",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Clean",
+      "type": "shell",
+      "command": "rm -rf build build-release",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "Run: agent",
+      "type": "shell",
+      "command": "./build/nullclaw agent",
+      "group": "test",
+      "dependsOn": "Build",
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "Run: status",
+      "type": "shell",
+      "command": "./build/nullclaw status",
+      "group": "test",
+      "dependsOn": "Build",
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "Run: onboard",
+      "type": "shell",
+      "command": "./build/nullclaw onboard --interactive",
+      "group": "test",
+      "dependsOn": "Build",
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "Run: doctor",
+      "type": "shell",
+      "command": "./build/nullclaw doctor",
+      "group": "test",
+      "dependsOn": "Build",
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "Run: gateway",
+      "type": "shell",
+      "command": "./build/nullclaw gateway --port 3000",
+      "group": "test",
+      "isBackground": true,
+      "dependsOn": "Build",
+      "presentation": { "reveal": "always", "panel": "shared" }
+    }
+  ]
+}

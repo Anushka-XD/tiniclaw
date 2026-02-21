@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug nullclaw",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/nullclaw",
+      "args": ["agent"],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build",
+      "env": {}
+    },
+    {
+      "name": "Debug: gateway",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/nullclaw",
+      "args": ["gateway", "--port", "3000"],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build"
+    },
+    {
+      "name": "Debug: doctor",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/nullclaw",
+      "args": ["doctor"],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build"
+    }
+  ]
+}

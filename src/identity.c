@@ -1,0 +1,1 @@
+/* stub — identity.c */

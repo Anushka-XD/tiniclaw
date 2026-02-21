@@ -1,0 +1,14 @@
+build/
+*.o
+*.a
+*.dylib
+*.so
+*.d
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+memory.db
+*.db
+*.log
+.DS_Store

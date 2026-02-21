@@ -1,0 +1,1 @@
+/* stub — heartbeat.c */
